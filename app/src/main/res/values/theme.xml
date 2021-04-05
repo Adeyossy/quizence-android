@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.Paediatrics">
+        <item name="colorPrimary">@color/paediatricsColorPrimary</item>
+        <item name="colorPrimaryDark">@color/paediatricsColorPrimaryDark</item>
+<!--        <item name="colorAccent"></item>-->
+    </style>
+
+    <style name="AppTheme.Obgyn">
+        <item name="colorPrimary">@color/obgynColorPrimary</item>
+        <item name="colorPrimaryDark">@color/obgynColorPrimaryDark</item>
+<!--        <item name="colorAccent"></item>-->
+    </style>
+
+    <style name="AppTheme.Medicine">
+        <item name="colorPrimary">@color/medicineColorPrimary</item>
+        <item name="colorPrimaryDark">@color/medicineColorPrimaryDark</item>
+<!--        <item name="colorAccent"></item>-->
+    </style>
+
+    <style name="AppTheme.Surgery">
+        <item name="colorPrimary">@color/surgeryColorPrimary</item>
+        <item name="colorPrimaryDark">@color/surgeryColorPrimaryDark</item>
+<!--        <item name="colorAccent"></item>-->
+    </style>
+
+    <style name="AppTheme.Psychiatry">
+        <item name="colorPrimary">@color/psychiatryColorPrimary</item>
+        <item name="colorPrimaryDark">@color/psychiatryColorPrimaryDark</item>
+<!--        <item name="colorAccent"></item>-->
+    </style>
+</resources>

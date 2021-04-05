@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_score_linearlayout"
+    android:orientation="vertical"
+    android:background="@color/colorMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScoreActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:layout_gravity="center"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:id="@+id/activity_score_cardview_linearlayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="32dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/activity_score_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                tools:text="@string/blob_text"/>
+
+            <LinearLayout
+                android:id="@+id/activity_score_details"
+                android:background="@drawable/round_button"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="256dp"
+                android:layout_height="256dp">
+
+                <TextView
+                    android:id="@+id/activity_score_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"
+                    android:textSize="96sp"
+                    tools:text="90%"/>
+
+                <TextView
+                    android:id="@+id/activity_score_proportion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="12"
+                    android:lineSpacingExtra="8sp"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/colorPrimaryDark"
+                    tools:text="180/200" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/corrections"
+        android:textColor="@color/colorMain"
+        android:elevation="8dp"/>
+
+</LinearLayout>

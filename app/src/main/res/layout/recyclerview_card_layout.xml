@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="24dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardBackgroundColor="@color/colorMain">
+
+    <LinearLayout
+        android:id="@+id/recyclerview_card_layout_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comicneue_light"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            tools:text="@string/course"/>
+
+        <TextView
+            android:id="@+id/recyclerview_card_layout_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/oswald_semibold"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            tools:text="@string/blob_text"/>
+
+        <LinearLayout
+            android:id="@+id/options_listview_layout_option1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:padding="8dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/options_listview_layout_true1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/true_text"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/options_listview_layout_option_text1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_weight="6"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/comicneue_regular"
+                android:maxLines="3"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:textAlignment="textStart"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black"
+                tools:text="@string/blob_option_text" />
+
+            <Button
+                android:id="@+id/options_listview_layout_false1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/false_text"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/options_listview_layout_option2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:padding="8dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/options_listview_layout_true2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/true_text"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/options_listview_layout_option_text2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_weight="6"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/comicneue_regular"
+                android:maxLines="3"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:textAlignment="textStart"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black"
+                tools:text="@string/blob_option_text" />
+
+            <Button
+                android:id="@+id/options_listview_layout_false2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/false_text"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/options_listview_layout_option3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:padding="8dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/options_listview_layout_true3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/true_text"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/options_listview_layout_option_text3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_weight="6"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/comicneue_regular"
+                android:maxLines="3"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:textAlignment="textStart"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black"
+                tools:text="@string/blob_option_text" />
+
+            <Button
+                android:id="@+id/options_listview_layout_false3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/false_text"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/options_listview_layout_option4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:padding="8dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/options_listview_layout_true4"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/true_text"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/options_listview_layout_option_text4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_weight="6"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/comicneue_regular"
+                android:maxLines="3"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:textAlignment="textStart"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black"
+                tools:text="@string/blob_option_text" />
+
+            <Button
+                android:id="@+id/options_listview_layout_false4"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/false_text"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/options_listview_layout_option5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:padding="8dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/options_listview_layout_true5"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/true_text"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/options_listview_layout_option_text5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_weight="6"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/comicneue_regular"
+                android:maxLines="3"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:textAlignment="textStart"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black"
+                tools:text="@string/blob_option_text" />
+
+            <Button
+                android:id="@+id/options_listview_layout_false5"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/false_text"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

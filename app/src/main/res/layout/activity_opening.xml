@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/opening_parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpeningActivity">
+
+    <ImageView
+        android:fitsSystemWindows="true"
+        android:id="@+id/opening_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/opening_image_description"
+        tools:src="@drawable/opening_activity"/>
+
+    <LinearLayout
+        android:background="@color/transparent_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="32dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/opening_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="@string/welcome"
+            android:fontFamily="@font/oswald_semibold"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryLight"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <FrameLayout
+            android:background="@color/colorPrimaryLight"
+            android:layout_width="wrap_content"
+            android:layout_height="6dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/welcome"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:visibility="invisible"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comicneue_regular"
+            android:textColor="@color/colorMain"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            tools:text="@string/placeholder_user_name"/>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,65 @@
+[
+    { 
+        "title": "Components of PCOS",
+        "options": [
+            { "option": "Menorrhagia", "isAnswer": false }, 
+            { "option": "Menarche", "isAnswer": false },
+            { "option": "Oligoamenorrhea", "isAnswer": true }
+        ]
+    },
+    { 
+        "title": "What is Asherman Syndrome?",
+        "options": [
+            { "option": "Primary Uterine Synechiae", "isAnswer": false }, 
+            { "option": "Menarche", "isAnswer": false },
+            { "option": "Secondary Uterine Synechiae from excessive curretage", "isAnswer": true }
+        ]
+    },
+    { 
+        "title": "Diagnostic indication for Laparoscopy:",
+        "options": [
+            { "option": "Malignancy", "isAnswer": false },
+            { "option": "Pregnancy", "isAnswer": false },
+            { "option": "Bartholin cyst diagnosis", "isAnswer": false },
+            { "option": "Pelvic Pain", "isAnswer": true}
+        ]
+    },
+    {
+        "title": "Indication for HSG",
+        "options": [
+            { "option": "Infection", "isAnswer": false },
+            { "option": "Infertility", "isAnswer": true },
+            { "option": "Active Bleeding", "isAnswer": false },
+            { "option": "Intercourse", "isAnswer": false }
+        ]
+    },
+    {
+        "title": "Concerning Pre-eclampsia",
+        "options": [
+            { "option": "Is associated with seizures", "isAnswer": false },
+            { "option": "Occurs before 20th week of pregnancy", "isAnswer": false },
+            { "option": "Lower limb swelling is pathognomonic", "isAnswer": false },
+            { "option": "Occurs after 20 weeks of pregnancy", "isAnswer": true },
+            { "option": "It is a diabetic disorder", "isAnswer": false }
+        ]
+    },
+    {
+        "title": "Which of the following is correct?",
+        "options": [
+            { "option": "Multiparity is 5 or more live births", "isAnswer": false },
+            { "option": "Cervical cancer needs surgical staging", "isAnswer": false },
+            { "option": "Anomaly scan is done between 18th and 22nd week of pregnancy", "isAnswer": true },
+            { "option": "Endometriosis is not associated with pain", "isAnswer": false}
+        ]
+    },
+    {
+        "title": "The following statements are correct concerning infertility except",
+        "options": [
+            { "option": "It could be iatrogenic", "isAnswer": false },
+            { "option": "Mayer-Rokitansky-Kuster-Hauser syndrome is a cause", "isAnswer": false },
+            { "option": "1ml volume of semen is adequate for fertility", "isAnswer": true },
+            { "option": "Klinefelter's syndrome is a cause", "isAnswer": false },
+            { "option": "Intercourse occuring once per week for a month is not enough for diagnosis", "isAnswer": false }
+        ]
+    }
+]

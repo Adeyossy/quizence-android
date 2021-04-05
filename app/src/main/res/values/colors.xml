@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6237a0</color>
+    <color name="colorPrimaryDark">#28104e</color>
+    <color name="colorAccent">#009688</color>
+    <color name="colorMain">@android:color/white</color>
+    <color name="light_grey">#f2f2f2</color>
+    <color name="colorPrimaryLight">#f9f5fa</color>
+    <color name="quizence_status_bar">#cccccc</color>
+    <color name="right_answer">#e6f2e8</color>
+    <color name="wrong_answer">#ffe2e2</color>
+
+    <color name="paediatricsColorPrimary">#3d5afe</color>
+    <color name="paediatricsColorPrimaryLight">#536dfe</color>
+    <color name="paediatricsColorPrimaryDark">#304ffe</color>
+
+    <color name="obgynColorPrimary">#2979ff</color>
+    <color name="obgynColorPrimaryLight">#448aff</color>
+    <color name="obgynColorPrimaryDark">#2962ff</color>
+
+    <color name="medicineColorPrimary">#00b0ff</color>
+    <color name="medicineColorPrimaryLight">#40c4ff</color>
+    <color name="medicineColorPrimaryDark">#0091ea</color>
+
+    <color name="surgeryColorPrimary">#ffc107</color>
+    <color name="surgeryColorPrimaryLight">#ffd54f</color>
+    <color name="surgeryColorPrimaryDark">#ff6f00</color>
+
+    <color name="psychiatryColorPrimary">#ff5722</color>
+    <color name="psychiatryColorPrimaryLight">#ff8a65</color>
+    <color name="psychiatryColorPrimaryDark">#bf360c</color>
+
+    <color name="black_overlay">#66000000</color>
+</resources>

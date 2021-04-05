@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">Quizence</string>
+    <string name="mode_selection_dialog_title">Choose a Mode</string>
+    <string name="course">Course</string>
+    <string name="blob_text">Just some blob text in place of the question title</string>
+    <string name="blob_option_text">This should contain some text to simulate the options for a question for the time being</string>
+    <string name="true_text">T</string>
+    <string name="false_text">F</string>
+    <string name="single_view">Single View</string>
+    <string name="multiview">Multiview</string>
+    <string name="action_settings">Settings</string>
+    <string name="change_view">Change View</string>
+    <string name="cancel_quiz">Cancel Quiz</string>
+    <string name="check_answers">Check Answers</string>
+    <string name="welcome">Welcome</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="section_icon">Icon for this section</string>
+    <string name="avatar">User Avatar</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="title">Title</string>
+    <string name="right_button">Go right</string>
+    <string name="left_button">Go Left</string>
+    <string name="proceed">Proceed</string>
+    <string name="course_avatar">Course Avatar</string>
+    <string name="connecting">Getting Available Questions</string>
+    <string name="network">checking network availability</string>
+    <string name="true_or_false">Read the following questions carefully and select "T" for true and
+        "F" for false for each option. Unanswered options will be deemed wrong.</string>
+    <string name="best_option">Read the following questions carefully and select the best option
+        that correctly answers the question.</string>
+    <string name="if_exam_mode">Questions are negatively marked. Each incorrect answer
+        attracts a penalty of half mark.</string>
+    <string name="try_again">Try Again</string>
+    <string name="corrections">View Corrections</string>
+    <string name="empty_result">No questions available</string>
+    <string name="placeholder_user_name">Adeyosola Mustapha</string>
+    <string name="opening_image_description">Launch Screen Image</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="messages_header">Messages</string>
+
+    <!-- Preference Titles -->
+    <string name="sync_header">Sync</string>
+    <string name="signature_title">Your signature</string>
+
+    <!-- Messages Preferences -->
+    <string name="reply_title">Default reply action</string>
+    <string name="sync_title">Sync email periodically</string>
+
+    <!-- Sync Preferences -->
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="logout">Log out</string>
+    <string name="emailHint">Email e.g. user@example.com</string>
+    <string name="hey">Hello!</string>
+    <string name="verify">Let\'s verify your email</string>
+    <string-array name="mode_selection_dialog_array">
+        <item>True or False</item>
+        <item>Best Option</item>
+        <item>Essay</item>
+        <item>Picture Test</item>
+    </string-array>
+</resources>

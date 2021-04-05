@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.quizence.quizence.QuizModeActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <!--<LinearLayout-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:gravity="center"-->
+        <!--android:divider="@android:drawable/divider_horizontal_bright">-->
+
+        <!--<Button-->
+            <!--android:id="@+id/activity_quiz_mode_singleview"-->
+            <!--android:foreground="?android:attr/selectableItemBackground"-->
+            <!--android:background="@color/colorPrimaryDark"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="5"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:text="@string/single_view"-->
+            <!--android:onClick="changeQuizMode"/>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/activity_quiz_mode_multiview"-->
+            <!--android:foreground="?android:attr/selectableItemBackground"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="5"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:text="@string/multiview"-->
+            <!--android:onClick="changeQuizMode"/>-->
+
+    <!--</LinearLayout>-->
+
+    <FrameLayout
+        android:id="@+id/activity_quiz_mode_fragment_slot"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="0dp"/>
+
+</FrameLayout>

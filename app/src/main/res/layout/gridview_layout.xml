@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/gridview_root"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/main_gridview_item_selection"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="6dp"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:id="@+id/gridview_linearlayout"
+        android:backgroundTint="@color/main_gridview_item_selection"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="48dp">
+
+        <ImageView
+            android:id="@+id/main_section_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/section_icon"
+            android:tint="@color/main_gridview_icon"
+            tools:src="@drawable/ic_assessment_black_24dp" />
+
+        <TextView
+            android:id="@+id/main_section_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/main_gridview_textview"
+            android:textAlignment="center"
+            tools:text="@string/check_answers"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

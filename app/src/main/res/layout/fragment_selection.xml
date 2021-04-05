@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_selection_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:clipToPadding="false"
+    android:gravity="bottom">
+
+    <LinearLayout
+        android:id="@+id/fragment_selection_details"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fragment_selection_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/oswald_regular"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000"
+            tools:text="@string/title"/>
+
+        <TextView
+            android:id="@+id/fragment_selection_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/oswald_semibold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            tools:text="@string/subtitle"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_selection_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_selection_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:gravity="bottom"
+            android:clipToPadding="false"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="?attr/colorPrimary"
+            app:cardElevation="8dp">
+
+            <ImageView
+                android:id="@+id/fragment_selection_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:contentDescription="@string/course_avatar" />
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</LinearLayout>
