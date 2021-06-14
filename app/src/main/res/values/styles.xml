@@ -16,6 +16,14 @@
 
     <style name="AppTheme" parent="BaseAppTheme" />
 
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="fontFamily">@font/oswald_light</item>
+    </style>
+
+    <style name="DatePickerTheme" parent="AppTheme">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
     <style name="FullscreenTheme" parent="AppTheme">
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
         <item name="android:windowActionBarOverlay">true</item>

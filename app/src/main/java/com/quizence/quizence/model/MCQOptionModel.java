@@ -9,23 +9,28 @@ import android.os.Parcelable;
 
 public class MCQOptionModel implements Parcelable {
 
-    private String mOption;
-    private boolean mIsMarked, mIsAnswer;
-    private int mUserAnswer;
-    private String mExplanation;
+    private String option;
+    private boolean isAnswered, answer;
+    private transient int mUserAnswer;
+    private String explanation;
+
+    public MCQOptionModel(){
+        option = "";
+        explanation = "";
+    }
 
     public MCQOptionModel(String option, boolean isAnswer, String explanation){
-        mOption = option;
-        mIsAnswer = isAnswer;
-        mExplanation = explanation;
+        this.option = option;
+        answer = isAnswer;
+        this.explanation = explanation;
     }
 
     private MCQOptionModel(Parcel in) {
-        mOption = in.readString();
-        mIsAnswer = in.readByte() != 0;
+        option = in.readString();
+        answer = in.readByte() != 0;
         mUserAnswer = in.readInt();
-        mIsMarked = in.readByte() != 0;
-        mExplanation = in.readString();
+        isAnswered = in.readByte() != 0;
+        explanation = in.readString();
     }
 
     public static final Creator<MCQOptionModel> CREATOR = new Creator<MCQOptionModel>() {
@@ -41,20 +46,20 @@ public class MCQOptionModel implements Parcelable {
     };
 
     public void setOption(String option){
-        mOption = option;
+        this.option = option;
     }
 
     //returns the text of the option
     public String getOptionText(){
-        return mOption;
+        return option;
     }
 
     public void setAnswer(boolean isAnswer){
-        mIsAnswer = isAnswer;
+        answer = isAnswer;
     }
 
     public boolean getAnswer(){
-        return mIsAnswer;
+        return answer;
     }
 
     //this method is for future proofing when we introduce exam mode or want to check the answer
@@ -69,27 +74,27 @@ public class MCQOptionModel implements Parcelable {
 
     //this method calculates the score of the user-selected option
     public int getOptionScore(){
-        int answer = mIsAnswer ? 1 : 2;
+        int answer = this.answer ? 1 : 2;
         if(mUserAnswer == answer) return 1;
         return 0;
     }
 
     public void setMarked(boolean isMarked){
-        mIsMarked = isMarked;
+        isAnswered = isMarked;
     }
 
     public boolean getMarked(){
-        return mIsMarked;
+        return isAnswered;
     }
 
     //method to set the explanation of the option as either the answer or not
     public void setExplanation(String explanation){
-        mExplanation = explanation;
+        this.explanation = explanation;
     }
 
     //when queried for the explanation, this method should return it
     public String getExplanation(){
-        return mExplanation;
+        return explanation;
     }
 
     @Override
@@ -99,10 +104,10 @@ public class MCQOptionModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mOption);
+        dest.writeString(option);
         dest.writeInt(mUserAnswer);
-        dest.writeByte((byte) (mIsAnswer ? 1 : 0));
-        dest.writeByte((byte) (mIsMarked ? 1 : 0));
-        dest.writeString(mExplanation);
+        dest.writeByte((byte) (answer ? 1 : 0));
+        dest.writeByte((byte) (isAnswered ? 1 : 0));
+        dest.writeString(explanation);
     }
 }

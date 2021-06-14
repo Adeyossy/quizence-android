@@ -32,11 +32,11 @@ public class QuizModeListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_quiz_mode_list, container, false);
+        View view = inflater.inflate(R.layout.recyclerview, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.fragment_quiz_mode_list_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        recyclerView.setAdapter(new QuizModeListAdapter(mMCQquestions, getActivity()));
+        recyclerView.setAdapter(new QuizModeListAdapter(mMCQquestions));
 
         return view;
     }

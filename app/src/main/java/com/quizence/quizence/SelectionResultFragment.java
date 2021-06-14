@@ -95,10 +95,14 @@ public class SelectionResultFragment extends Fragment {
 
             //TextView for the question count
             TextView countTextView = convertView.findViewById(R.id.item_count_number);
-            countTextView.setText(String.valueOf(getItem(position).getQuestions().size()));
+            countTextView.setText(String.valueOf(getItem(position).getQuestions().size()).concat(
+                    " questions"
+            ));
 
             TextView typeTextView = convertView.findViewById(R.id.item_type);
-            typeTextView.setText(getItem(position).getType());
+            String type = "";
+            if(getItem(position).getType().equals("boole")) type = "True of False";
+            typeTextView.setText(type);
 
             TextView yearTextView = convertView.findViewById(R.id.item_year);
             yearTextView.setText(String.valueOf(getItem(position).getYear()));

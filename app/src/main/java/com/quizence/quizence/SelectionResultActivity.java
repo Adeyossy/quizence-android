@@ -50,8 +50,10 @@ public class SelectionResultActivity extends AppCompatActivity implements Loadin
         FragmentManager fragmentManager = getSupportFragmentManager();
         mTransaction = fragmentManager.beginTransaction();
         Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_root);
-        fragment = new LoadingFragment();
-        mTransaction.replace(R.id.fragment_root, fragment).commit();
+        if (fragment == null) {
+            fragment = new LoadingFragment();
+            mTransaction.replace(R.id.fragment_root, fragment).commit();
+        }
 
         //get Intent extras put in ModeSelectionDialog
         Intent intent = getIntent();
@@ -79,7 +81,6 @@ public class SelectionResultActivity extends AppCompatActivity implements Loadin
     }
 
     private void connectToBackend(){
-
         //Volley data fetch
         String backendUrl = BACKEND_URL.concat(mSelectedCourse.toLowerCase());
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, backendUrl,
@@ -115,6 +116,19 @@ public class SelectionResultActivity extends AppCompatActivity implements Loadin
     public void onNetworkUpdate() {
         QuizenceDataHolder.get().cancelRequestQueue(SelectionResultActivity.class.getSimpleName());
         connectToBackend();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        mTransaction = fragmentManager.beginTransaction();
+        Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_root);
+        if (fragment == null) {
+            fragment = new LoadingFragment();
+            mTransaction.replace(R.id.fragment_root, fragment).commit();
+        }
     }
 
     @Override

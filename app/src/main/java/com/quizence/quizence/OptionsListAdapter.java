@@ -31,12 +31,13 @@ public class OptionsListAdapter extends BaseAdapter {
     private List<MCQOptionModel> mMCQOptionsList;
     private Context mContext;
     private boolean[] mTrueButtonStates, mFalseButtonStates;
+    private Drawable mRoundButtonDrawable;
 
     public OptionsListAdapter(Context context, MCQmodel mcQmodel){
         mContext = context;
         mMCQModel = mcQmodel;
         mMCQOptionsList = mcQmodel.getOptions();
-        Collections.shuffle(mMCQOptionsList);
+//        Collections.shuffle(mMCQOptionsList);
         mTrueButtonStates = new boolean[mMCQOptionsList.size()];
         mFalseButtonStates = new boolean[mMCQOptionsList.size()];
         Arrays.fill(mTrueButtonStates, false);
@@ -110,6 +111,24 @@ public class OptionsListAdapter extends BaseAdapter {
                     default:
                         break;
                 }
+                Drawable answerDrawable = mContext.getResources().getDrawable(R.drawable.round_button);
+                answerDrawable.setTint(mContext.getResources().getColor(R.color.colorAccent));
+
+                if(mMCQModel.getAnswerShown()){
+                    if(optionModel.getAnswer()){
+                        trueButton.setBackground(answerDrawable);
+                        trueButton.setTextColor(mContext.getResources().getColor(R.color.colorMain));
+                        trueButton.setElevation(2f);
+                        QuizenceUtilities.playAnimation(trueButton).start();
+                        falseButton.setVisibility(View.INVISIBLE);
+                    }else{
+                        falseButton.setBackground(answerDrawable);
+                        falseButton.setTextColor(mContext.getResources().getColor(R.color.colorMain));
+                        falseButton.setElevation(2f);
+                        QuizenceUtilities.playAnimation(falseButton).start();
+                        trueButton.setVisibility(View.INVISIBLE);
+                    }
+                }
 
                 trueButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -134,21 +153,24 @@ public class OptionsListAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private void buttonManager(boolean buttonState, Button activeButton, Button passiveButton, MCQOptionModel optionModel, int userAnswer) {
-        if(buttonState){
-            Drawable drawable = mContext.getResources().getDrawable(R.drawable.round_button);
-            drawable.setTint(mContext.getResources().getColor(R.color.colorPrimaryDark));
-            activeButton.setBackground(drawable);
-            activeButton.setTextColor(mContext.getResources().getColor(android.R.color.white));
-            playAnimation(activeButton);
-            passiveButton.setBackground(null);
-            passiveButton.setTextColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
-            optionModel.setUserAnswer(userAnswer);
-        }else{
-            activeButton.setBackground(null);
-            activeButton.setTextColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
-            playAnimation(activeButton);
-            optionModel.setUserAnswer(0);
+    private void buttonManager(boolean buttonState, Button activeButton, Button passiveButton,
+                               MCQOptionModel optionModel, int userAnswer) {
+        if(!mMCQModel.getAnswerShown()){
+            if(buttonState){
+                mRoundButtonDrawable = mContext.getResources().getDrawable(R.drawable.round_button);
+                mRoundButtonDrawable.setTint(mContext.getResources().getColor(R.color.colorPrimaryDark));
+                activeButton.setBackground(mRoundButtonDrawable);
+                activeButton.setTextColor(mContext.getResources().getColor(android.R.color.white));
+                playAnimation(activeButton);
+                passiveButton.setBackground(null);
+                passiveButton.setTextColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
+                optionModel.setUserAnswer(userAnswer);
+            }else{
+                activeButton.setBackground(null);
+                activeButton.setTextColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
+                playAnimation(activeButton);
+                optionModel.setUserAnswer(0);
+            }
         }
     }
 

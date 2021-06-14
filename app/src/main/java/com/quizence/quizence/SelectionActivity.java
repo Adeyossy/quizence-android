@@ -102,7 +102,6 @@ public class SelectionActivity extends AppCompatActivity implements CourseSelect
 
             @Override
             public void onClick(View v) {
-//                Toast.makeText(SelectionActivity.this, mCourseTitle, Toast.LENGTH_SHORT).show();
                 sQuizenceDataHolder.setCurrentCourseIndex(mSelectionPager.getCurrentItem());
                 ModeSelectionDialog modeSelectionDialog = ModeSelectionDialog.newInstance(mCourseTitle);
                 modeSelectionDialog.show(getSupportFragmentManager(), "modeSelectionDialog");

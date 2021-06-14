@@ -17,10 +17,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -32,11 +35,12 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1;
     private String[] mDashboardItems = {
-            "Notes", "Quiz", "Question Bank"
+            "MCQs", "Exam Mode", "Picture Test", "Essays"
     };
 
     private int[] mDashboardIcons = {
-            R.drawable.ic_book_black_24dp, R.drawable.ic_assessment_black_24dp, R.drawable.ic_help_black_24dp, R.drawable.ic_note_black_24dp
+            R.drawable.ic_book_black_24dp, R.drawable.ic_assessment_black_24dp,
+            R.drawable.ic_help_black_24dp, R.drawable.ic_note_black_24dp
     };
 
     private String mDisplayName, mEmail;
@@ -62,8 +66,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar quizenceToolbar = findViewById(R.id.quizence_appbar);
         setSupportActionBar(quizenceToolbar);
         if(getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title);
-            getSupportActionBar().setSubtitle(mEmail);
+            getSupportActionBar().setTitle("Dashboard");
+            if(mDisplayName == null) getSupportActionBar().setSubtitle(mEmail);
+            else getSupportActionBar().setSubtitle(mDisplayName);
         }
 
         ImageView imageView = findViewById(R.id.activity_main_avatar);
@@ -90,18 +95,29 @@ public class MainActivity extends AppCompatActivity {
             public View getView(int position, View convertView, ViewGroup parent) {
                 if(convertView == null) convertView = getLayoutInflater().inflate(R.layout.gridview_layout, parent, false);
 
+                LinearLayout disabledLayout = convertView.findViewById(R.id.gridview_linearlayout);
+
+                if (position == 0) {
+                    convertView.setEnabled(true);
+                    disabledLayout.setEnabled(true);
+                }else{
+                    convertView.setEnabled(false);
+                    disabledLayout.setEnabled(false);
+                    convertView.setAlpha(0.1f);
+                }
+
                 final CardView cardView = convertView.findViewById(R.id.gridview_root);
                 cardView.setMinimumHeight(cardView.getWidth());
 
                 switch (position){
-                    case 1:
-                    case 2:
+                    case 0:
                         cardView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 launchSelectionActivity(cardView);
                             }
                         });
+                    default:
                 }
 
                 //set the icon for the imageview
@@ -126,16 +142,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+
+        Snackbar.make(findViewById(R.id.activity_main_coordinator),
+                R.string.click_plus_button_collate, BaseTransientBottomBar.LENGTH_LONG).show();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        mFirebaseUser = mFirebaseAuth.getCurrentUser();
-        if(mFirebaseUser == null){
-            authenticateUser();
-        }
     }
 
     @Override
@@ -161,6 +175,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                mFirebaseUser = user;
+                if(user != null){
+                    mDisplayName = user.getDisplayName();
+                }else{
+                    authenticateUser();
+                }
+            }
+        };
+
+//        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+//        if(mFirebaseUser == null){
+//            authenticateUser();
+//        }
     }
 
     @Override
@@ -200,5 +232,10 @@ public class MainActivity extends AppCompatActivity {
     public void launchSelectionActivity(View view){
         Intent selectionIntent = new Intent(this, SelectionActivity.class);
         startActivity(selectionIntent);
+    }
+
+    public void launchCollationActivity(View view) {
+        Intent collationIntent = new Intent(this, CollateActivity.class);
+        startActivity(collationIntent);
     }
 }

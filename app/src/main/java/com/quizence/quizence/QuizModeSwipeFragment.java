@@ -14,6 +14,7 @@ import com.quizence.quizence.model.MCQmodel;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Mustapha Adeyosola on 30-Mar-20.
@@ -29,7 +30,6 @@ public class QuizModeSwipeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mMCQquestions = QuizenceDataHolder.get().getCourse().getCurrentQuestions();
-        Collections.shuffle(mMCQquestions);
     }
 
     @Nullable
@@ -37,7 +37,7 @@ public class QuizModeSwipeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_quiz_mode_swipe, container, false);
         mViewPager = view.findViewById(R.id.fragment_quiz_mode_swipe_viewpager);
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
 
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override

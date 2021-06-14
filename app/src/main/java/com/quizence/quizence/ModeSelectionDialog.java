@@ -27,7 +27,6 @@ public class ModeSelectionDialog extends DialogFragment {
 
         Bundle bundle = getArguments();
         if(bundle != null) mSelectedCourse = bundle.getString(SELECTED_COURSE);
-        Toast.makeText(getActivity(), mSelectedCourse, Toast.LENGTH_SHORT).show();
     }
 
     @NonNull

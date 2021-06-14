@@ -33,6 +33,10 @@ public class QuizModeActivity extends AppCompatActivity {
         Toolbar quizenceToolbar = findViewById(R.id.quizence_appbar);
         setSupportActionBar(quizenceToolbar);
 
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(QuizenceDataHolder.get().getCourse().getCourseName());
+        }
+
 //        mSingleViewButton = findViewById(R.id.activity_quiz_mode_singleview);
 //        mMultiViewButton = findViewById(R.id.activity_quiz_mode_multiview);
 
@@ -74,8 +78,8 @@ public class QuizModeActivity extends AppCompatActivity {
             case R.id.change_view:
                 changeQuizMode();
                 mIsSwipeMode = !mIsSwipeMode;
-                int drawableRes = mIsSwipeMode ? R.drawable.ic_view_array_black_24dp
-                        : R.drawable.ic_view_agenda_black_24dp;
+                int drawableRes = mIsSwipeMode ? R.drawable.ic_view_agenda_black_24dp
+                        : R.drawable.ic_view_array_black_24dp;
                 item.setIcon(getResources().getDrawable(drawableRes));
                 return true;
 

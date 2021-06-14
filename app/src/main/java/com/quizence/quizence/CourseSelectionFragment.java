@@ -44,7 +44,7 @@ public class CourseSelectionFragment extends Fragment {
         textView.setText(mCourseBackbone.getCourseName());
 
         TextView subtitleText = view.findViewById(R.id.fragment_selection_subtitle);
-        String subtitle = mCourseBackbone.getCourseQuestionsTotal() + " Questions";
+        String subtitle = "Questions";
         subtitleText.setText(subtitle);
 
         PropertyValuesHolder prop1 = PropertyValuesHolder.ofFloat(View.TRANSLATION_Z, 0f, 6f);

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CourseModel implements Parcelable {
 
-    private String mTitle, mType, mCourseTitle;
+    private String mTitle, mType, mCourseTitle, mSourceID;
     private int mYear;
     private String mAuthor; //TODO: update the backend with the details of the author
     private List<MCQmodel> mQuestions;
@@ -22,7 +22,8 @@ public class CourseModel implements Parcelable {
 
     private static final String DESCRIPTION_KEY = "title", TYPE_KEY = "type",
         COURSE_TITLE_KEY = "course", QUESTIONS_KEY = "questions", YEAR_KEY = "year",
-            QUESTION_TITLE_KEY = "question", OPTIONS_KEY = "options", ISANSWERED_KEY = "isAnswered";
+            QUESTION_TITLE_KEY = "question", OPTIONS_KEY = "options", ISANSWERED_KEY = "isAnswered",
+                ID_KEY = "_id";
 
     public CourseModel(JSONObject jsonObject){
         mQuestions = new ArrayList<>();
@@ -31,11 +32,12 @@ public class CourseModel implements Parcelable {
             mType = jsonObject.getString(TYPE_KEY);
             mCourseTitle = jsonObject.getString(COURSE_TITLE_KEY);
             mIsAnswered = jsonObject.getBoolean(ISANSWERED_KEY);
+            mSourceID = jsonObject.getString(ID_KEY);
 //            mYear = jsonObject.getInt(YEAR_KEY);
             JSONArray array = jsonObject.getJSONArray(QUESTIONS_KEY);
             parseQuestions(array);
         } catch (JSONException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
     }
 
@@ -61,6 +63,7 @@ public class CourseModel implements Parcelable {
             MCQmodel mcQmodel = new MCQmodel(jsonObject.getString(QUESTION_TITLE_KEY),
                     jsonObject.getJSONArray(OPTIONS_KEY), i + 1,
                     mIsAnswered);
+            mcQmodel.setSourceId(mSourceID);
             mQuestions.add(mcQmodel);
         }
     }

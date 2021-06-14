@@ -5,6 +5,7 @@
     <color name="colorAccent">#009688</color>
     <color name="colorMain">@android:color/white</color>
     <color name="light_grey">#f2f2f2</color>
+    <color name="grey_white">#fafafa</color>
     <color name="colorPrimaryLight">#f9f5fa</color>
     <color name="quizence_status_bar">#cccccc</color>
     <color name="right_answer">#e6f2e8</color>
@@ -31,4 +32,5 @@
     <color name="psychiatryColorPrimaryDark">#bf360c</color>
 
     <color name="black_overlay">#66000000</color>
+    <color name="grey">#808080</color>
 </resources>

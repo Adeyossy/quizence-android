@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/collate_adapter_linearlayout"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/collate_adapter_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="0dp"
+        app:cardElevation="1dp"
+        app:cardCornerRadius="2dp"
+        app:cardBackgroundColor="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/collate_adapter_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/collate_activity_height"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/aria"
+            tools:src="@drawable/psychiatry"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/collate_adapter_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="16dp"
+        android:fontFamily="@font/oswald_regular"
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:text="@string/welcome"/>
+
+</LinearLayout>

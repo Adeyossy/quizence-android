@@ -12,8 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
+        android:fontFamily="@font/oswald_semibold"
+        android:textColor="@color/colorPrimaryDark"
         android:text="@string/empty_result"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textAlignment="center" />
 
 </FrameLayout>

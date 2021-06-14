@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="option_height">64dp</dimen>
+    <dimen name="option_height_small">48dp</dimen>
+    <dimen name="option_height_medium">56dp</dimen>
+    <dimen name="large_elevation">0.4dp</dimen>
+    <dimen name="edit_option_padding_start">24dp</dimen>
+    <dimen name="collate_activity_height">256dp</dimen>
+</resources>

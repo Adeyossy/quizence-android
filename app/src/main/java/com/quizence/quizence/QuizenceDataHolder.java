@@ -20,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,25 +34,44 @@ public class QuizenceDataHolder {
     private List<MCQmodel> mMCQquestions;
     private int mCurrentCourseIndex;
 
+    private CollationModel mCollationModel;
+    private List<CollationModel> mCollations;
+
     private RequestQueue mRequestQueue;
+    private int mCurrentCollationIndex;
 
     private QuizenceDataHolder(){
         mCourses = new ArrayList<>();
+        mCollations = new ArrayList<>();
 
-        CoursesBackbone coursesBackbone1 = new CoursesBackbone(0, "Paediatrics", 20, R.drawable.paediatrics);
+        CoursesBackbone coursesBackbone1 = new CoursesBackbone(0, "Paediatrics",
+                20, R.drawable.paediatrics);
         mCourses.add(coursesBackbone1);
 
-        CoursesBackbone coursesBackbone2 = new CoursesBackbone(0, "OBGYN", 10, R.drawable.obgyn);
+        CoursesBackbone coursesBackbone2 = new CoursesBackbone(0, "OBGYN",
+                10, R.drawable.obgyn);
         mCourses.add(coursesBackbone2);
 
-        CoursesBackbone coursesBackbone3 = new CoursesBackbone(0, "Medicine", 40, R.drawable.medicine);
+        CoursesBackbone coursesBackbone3 = new CoursesBackbone(0, "Medicine",
+                40, R.drawable.medicine);
         mCourses.add(coursesBackbone3);
 
-        CoursesBackbone coursesBackbone4 = new CoursesBackbone(0, "Surgery", 35, R.drawable.surgery);
+        CoursesBackbone coursesBackbone4 = new CoursesBackbone(0, "Surgery",
+                35, R.drawable.surgery);
         mCourses.add(coursesBackbone4);
 
-        CoursesBackbone coursesBackbone5 = new CoursesBackbone(0, "Psychiatry", 60, R.drawable.psychiatry);
+        CoursesBackbone coursesBackbone5 = new CoursesBackbone(0, "Psychiatry",
+                60, R.drawable.psychiatry);
         mCourses.add(coursesBackbone5);
+
+        CoursesBackbone coursesBackbone6 = new CoursesBackbone(0, "Family Medicine",
+                0, R.drawable.dark_female_doctor);
+        mCourses.add(coursesBackbone6);
+
+        CoursesBackbone coursesBackbone7 = new CoursesBackbone(0, "PSM",
+                0, R.drawable.female_doctor);
+        mCourses.add(coursesBackbone7);
+
     }
 
     //this method gets the singleton instance
@@ -69,6 +89,14 @@ public class QuizenceDataHolder {
 
     public int getCurrentCourseIndex(){
         return mCurrentCourseIndex;
+    }
+
+    public void setCurrentCollationIndex(int currentCollationIndex){
+        mCurrentCollationIndex = currentCollationIndex;
+    }
+
+    public int getCurrentCollationIndex(){
+        return mCurrentCollationIndex;
     }
 
     //returns the course at the specified position
@@ -89,6 +117,31 @@ public class QuizenceDataHolder {
                 CourseModel courseModel = new CourseModel(jsonObject);
                 mCourses.get(mCurrentCourseIndex).addToAllQuestions(courseModel);
             }
+        }
+    }
+
+    public void parseCollationData(JSONArray jsonArray) throws JSONException {
+        //parse the collation data received in the activity
+        for(int i = 0; i < jsonArray.length(); i++){
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            CollationModel model = new CollationModel(jsonObject.getString("posting"),
+                    jsonObject.getString("subposting"));
+            if(jsonObject.has("_id")) model.setCollationId(jsonObject.getString("_id"));
+            if(jsonObject.has("date")) model.setCollationDate(jsonObject.getLong("date"));
+            if(jsonObject.has("numberofquestions")) model.setNumberOfQuestions(jsonObject.getInt("numberofquestions"));
+            if(jsonObject.has("type")) model.setQuestionType(jsonObject.getString("type"));
+            if(jsonObject.has("set")) model.setSet(jsonObject.getString("set"));
+            if(jsonObject.has("group")) model.setGroup(jsonObject.getString("group"));
+            JSONArray questionArray = null;
+            if(jsonObject.has("questions"))
+                questionArray = jsonObject.getJSONArray("questions");
+//            for(int j = 0; j < questionArray.length(); j++){
+//                JSONObject questionObject = questionArray.getJSONObject(j);
+//                //TODO: Parse the above statement into a question usable in the collation
+//                CollationQuestionModel questionModel = new CollationQuestionModel("")
+//            }
+            model.setQuestions(QuizenceUtilities.parseQuestions(questionArray, false));
+            mCollations.add(model);
         }
     }
 
@@ -150,13 +203,34 @@ public class QuizenceDataHolder {
         return mMCQquestions;
     }
 
+    void setCurrentCollation(CollationModel collationModel) {
+        mCollationModel = collationModel;
+    }
+
+    CollationModel getCurrentCollation() {
+        return mCollationModel;
+    }
+
+    void addCollation(CollationModel collationModel){
+        setCurrentCollation(collationModel);
+        mCollations.add(collationModel);
+    }
+
+    List<CollationModel> getCollations(){
+        return mCollations;
+    }
+
+    void clearCollations(){
+        mCollations.clear();
+    }
+
     //maintain the RequestQueue in one place
-    public void addToRequestQueue(JsonRequest jsonRequest, Context context){
+    public void addToRequestQueue(Request request, Context context){
         if(mRequestQueue == null){
             mRequestQueue = Volley.newRequestQueue(context);
         }
 
-        mRequestQueue.add(jsonRequest);
+        mRequestQueue.add(request);
     }
 
     public void cancelRequestQueue(String classSimpleName){

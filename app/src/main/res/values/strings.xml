@@ -60,10 +60,73 @@
     <string name="emailHint">Email e.g. user@example.com</string>
     <string name="hey">Hello!</string>
     <string name="verify">Let\'s verify your email</string>
+    <string name="aria">Course Selection</string>
+    <string name="aria_time">Select Test Time</string>
+    <string name="aria_date">Select Test Date</string>
+    <string name="test_duration">Test Duration</string>
+    <string name="create_collation_subtitle">Collate test and exam questions from recall</string>
+    <string name="choose_subposting">Choose specific posting</string>
+    <string name="choose_question_type">Choose question type</string>
+    <string name="create_collation_choose_date">Choose Date and Time</string>
+    <string name="create_collation_create">Create Collation</string>
+    <string name="one">1</string>
+    <string name="set_exam_time">Set Exam Time</string>
+    <string name="set_test_duration">Set Test Duration and Unit</string>
+    <string name="collation_time_hour">Hour</string>
+    <string name="collation_time_minute">Minute</string>
+    <string name="collation_time_ampm">am/pm</string>
+    <string name="set_exam_date">Set Exam Date</string>
+    <string name="collation_date_day">Day</string>
+    <string name="collation_date_month">Month</string>
+    <string name="collation_date_year">Year</string>
+    <string name="eightam">08:00am</string>
+    <string name="set">Class Set</string>
+    <string name="group">Group</string>
+    <string name="option_here">Option goes here</string>
+    <string name="submit">Submit</string>
+    <string name="question_here">Question goes here</string>
+    <string name="update">Update Question</string>
+    <string name="first_poster">No one has added a question yet! Be the first :)</string>
+    <string name="oops_no_collation">Looks like there is no available collation at the moment.</string>
+    <string name="click_to_edit">*click to edit</string>
+    <string name="choose_to_edit">Choose any below to edit or create a new one with the \'+\' button</string>
+    <string name="choose_course_collate">Choose a course to collate</string>
+    <string name="click_plus_button_collate">Click the plus button at the bottom right to submit a question for collation</string>
+    <string name="available_collations_description">The collations available for this posting are listed below. If the collation for your posting has not been created, wait for your class senator to create it. If you\'re not a class senator do not use the \'+\' button below.</string>
+    <string name="instruction">The list below contains the questions</string>
     <string-array name="mode_selection_dialog_array">
         <item>True or False</item>
+    </string-array>
+
+    <string-array name="create_collation_question_type">
+        <item>None</item>
         <item>Best Option</item>
-        <item>Essay</item>
+        <item>True or False</item>
         <item>Picture Test</item>
+        <item>Essay</item>
+    </string-array>
+
+    <string-array name="create_collation_duration_unit">
+        <item>None</item>
+        <item>Minutes</item>
+        <item>Hour(s)</item>
+    </string-array>
+
+    <string-array name="create_collation_set">
+        <item>None</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+    </string-array>
+
+    <string-array name="create_collation_group">
+        <item>Group A</item>
+        <item>Group B</item>
+        <item>Group C</item>
+        <item>Group D</item>
     </string-array>
 </resources>

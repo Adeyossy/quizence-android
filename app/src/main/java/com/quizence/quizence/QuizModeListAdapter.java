@@ -1,6 +1,6 @@
 package com.quizence.quizence;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -20,36 +20,53 @@ import java.util.List;
  * Created by Mustapha Adeyosola on 02-Apr-20.
  */
 
-public class QuizModeListAdapter extends RecyclerView.Adapter<QuizModeListAdapter.QuizModeListViewHolder> {
+public class QuizModeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    static final int VIEW_TYPE_ONE = 0; //view type code for the header
+    static final int VIEW_TYPE_TWO = 1; //view type code for the main layout
     private List<MCQmodel> mMCQquestions;
-    private Context mContext;
 
-    public QuizModeListAdapter(List<MCQmodel> questions, Context context){
+    public QuizModeListAdapter(List<MCQmodel> questions){
         mMCQquestions = questions;
-        mContext = context;
     }
 
     @Override
-    public QuizModeListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_card_layout, parent, false);
-        return new QuizModeListViewHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if(viewType == VIEW_TYPE_TWO){
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.recyclerview_card_layout, parent, false);
+            return new QuizModeListViewHolder(view);
+        } else {
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.title_subtitle, parent, false);
+            return new TitleSubtitleHolder(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(QuizModeListViewHolder holder, int position) {
-        MCQmodel mcqquestion = mMCQquestions.get(position);
-        holder.mQuestionTextView.setText(mcqquestion.getQuestionTitle());
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if(getItemViewType(position) == VIEW_TYPE_TWO && position <= mMCQquestions.size()){
+            QuizModeListViewHolder listViewHolder = (QuizModeListViewHolder) holder;
+            MCQmodel mcqquestion = mMCQquestions.get(position - 1);
+            listViewHolder.mQuestionTextView.setText(mcqquestion.getQuestionTitle());
 
-        List<MCQOptionModel> options = mcqquestion.getOptions();
+            List<MCQOptionModel> options = mcqquestion.getOptions();
 
-        for(int i = 0; i < options.size(); i++){
-            TextView textView = holder.mOptionTextViews[i];
-            textView.setText(options.get(i).getOptionText());
+            for(int i = 0; i < options.size(); i++){
+                TextView textView = listViewHolder.mOptionTextViews[i];
+                textView.setText(options.get(i).getOptionText());
+            }
+
+            for(int j = options.size(); j < 5; j++){
+                listViewHolder.mOptionLayouts[j].setVisibility(View.GONE);
+            }
         }
 
-        for(int j = options.size(); j < 5; j++){
-            holder.mOptionLayouts[j].setVisibility(View.GONE);
+        if(getItemViewType(position) == VIEW_TYPE_ONE) {
+            TitleSubtitleHolder titleSubtitleHolder = (TitleSubtitleHolder) holder;
+            titleSubtitleHolder.mTitleTextView.setText(QuizenceDataHolder.get()
+                    .getCourse().getCourseName());
+            titleSubtitleHolder.mSubTitleTextView.setText(R.string.instruction);
         }
 
 //        OptionsListAdapter adapter = new OptionsListAdapter(mContext, mcqquestion.getOptions());
@@ -58,7 +75,13 @@ public class QuizModeListAdapter extends RecyclerView.Adapter<QuizModeListAdapte
 
     @Override
     public int getItemCount() {
-        return mMCQquestions.size();
+        return mMCQquestions.size() + 1;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if(position == 0) return VIEW_TYPE_ONE;
+        return VIEW_TYPE_TWO;
     }
 
     public static class QuizModeListViewHolder extends RecyclerView.ViewHolder{
@@ -72,8 +95,9 @@ public class QuizModeListAdapter extends RecyclerView.Adapter<QuizModeListAdapte
 
         public LinearLayout[] mOptionLayouts = { mOptionLayout1, mOptionLayout2, mOptionLayout3, mOptionLayout4, mOptionLayout5 };
         public TextView[] mOptionTextViews = new TextView[5];
-        public Button[] mTrueButtons = new Button[]{ mTrueButton1, mTrueButton2, mTrueButton3, mTrueButton4, mTrueButton5 },
-                mFalseButtons = new Button[]{ mFalseButton1, mFalseButton2, mFalseButton3, mFalseButton4, mFalseButton5 };
+        public Button[] mTrueButtons = new Button[5],
+                mFalseButtons = new Button[5];
+
 
         public QuizModeListViewHolder(View itemView) {
             super(itemView);
@@ -94,11 +118,23 @@ public class QuizModeListAdapter extends RecyclerView.Adapter<QuizModeListAdapte
             mTrueButton4 = itemView.findViewById(R.id.options_listview_layout_true4);
             mTrueButton5 = itemView.findViewById(R.id.options_listview_layout_true5);
 
+            mTrueButtons[0] = mTrueButton1;
+            mTrueButtons[1] = mTrueButton2;
+            mTrueButtons[2] = mTrueButton3;
+            mTrueButtons[3] = mTrueButton4;
+            mTrueButtons[4] = mTrueButton5;
+
             mFalseButton1 = itemView.findViewById(R.id.options_listview_layout_false1);
             mFalseButton2 = itemView.findViewById(R.id.options_listview_layout_false2);
             mFalseButton3 = itemView.findViewById(R.id.options_listview_layout_false3);
             mFalseButton4 = itemView.findViewById(R.id.options_listview_layout_false4);
             mFalseButton5 = itemView.findViewById(R.id.options_listview_layout_false5);
+
+            mFalseButtons[0] = mFalseButton1;
+            mFalseButtons[1] = mFalseButton2;
+            mFalseButtons[2] = mFalseButton3;
+            mFalseButtons[3] = mFalseButton4;
+            mFalseButtons[4] = mFalseButton5;
 
             mOptionText1 = itemView.findViewById(R.id.options_listview_layout_option_text1);
             mOptionText2 = itemView.findViewById(R.id.options_listview_layout_option_text2);
@@ -117,6 +153,18 @@ public class QuizModeListAdapter extends RecyclerView.Adapter<QuizModeListAdapte
             mOptionLayouts[2] = mOptionLayout3;
             mOptionLayouts[3] = mOptionLayout4;
             mOptionLayouts[4] = mOptionLayout5;
+        }
+    }
+
+    public static class TitleSubtitleHolder extends RecyclerView.ViewHolder{
+
+        TextView mTitleTextView, mSubTitleTextView;
+
+        public TitleSubtitleHolder(@NonNull View itemView) {
+            super(itemView);
+
+            mTitleTextView = itemView.findViewById(R.id.title_subtitle_title);
+            mSubTitleTextView = itemView.findViewById(R.id.title_subtitle_subtitle);
         }
     }
 }
